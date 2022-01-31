@@ -1,6 +1,7 @@
 import logo from './logo.svg';
 import './App.css';
 import { motion } from "framer-motion"
+import { Main } from './components/main';
 
 
 export const MyComponent = () => (
@@ -10,11 +11,20 @@ export const MyComponent = () => (
   />
 )
 
+const list = { hidden: { opacity: 1 } }
+const item = { hidden: { x: 100, opacity: 1 } }
+
 function App() {
   return (
     <div className="App">
+       <motion.ul animate="hidden" variants={list}>
+        <motion.li variants={item} Item One/>
+        <motion.li variants={item} Item two/>
+        <motion.li variants={item} Item three/>
+      </motion.ul>
+      <Main />
+      <MyComponent />
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
         <p>
           Edit <code>src/App.js</code> and save to reload.
         </p>
